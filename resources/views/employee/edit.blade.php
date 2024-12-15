@@ -60,6 +60,22 @@
                             <div class="text-danger"><small>{{ $message }}</small></div>
                         @enderror
                     </div>
+
+                    <div class="mt-4">
+                        @if ($employee->original_filename)
+                            <label for="cv" class="form-label">Curriculum Vitae (CV)</label>
+                            <h6>{{ $employee->original_filename }}</h6>
+                            <a href="{{ route('employees.download', $employee->id) }}"
+                                class="btn btn-primary btn-sm mt-2">
+                                Download CV
+                            </a>
+                            <br></br>
+                        @endif
+
+                      <!-- Input File CV -->
+                      <input type="file" class="form-control" id="cv" name="cv"
+                      accept=".pdf,.doc,.docx">
+
                 </div>
                 <hr>
                 <div class="row">
